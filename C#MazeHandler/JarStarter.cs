@@ -4,8 +4,9 @@ using System.Diagnostics;
 public class JarStarter {
 
 	public static void Main(){
-		string[] args = new string[]{"0", "../TestMazes", "T", "30", "40", "0", "0", "0"};
+		string[] args = new string[]{"0", "../TestMazes", "MAZE", "10", "20", "0", "0", "0"};
 		jarRunner(args);
+		System.Threading.Thread.Sleep(500);
 		MazeInitializer mazeInit = new MazeInitializer();
 		string[,] mazeMatrix = mazeInit.matrixMaker(args[2]);
 	}
@@ -18,7 +19,6 @@ public class JarStarter {
        		arguments += arg;
        		arguments += " ";
        	}
-       	System.Console.WriteLine(arguments);
        	javaJar.StartInfo.Arguments = arguments;
        	javaJar.Start();
    	}
